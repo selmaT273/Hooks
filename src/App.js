@@ -14,11 +14,16 @@ function App() {
 
   }
 
+  function toggleTodo(indexToUpdate) {
+    console.log(indexToUpdate);
+    // let updatedTodos = todos.map((todo, t))
+  }
+
   return (
     <>
     <Header />
     <ToDoForm onSave = {addTodo}/>
-    <ToDoList list = {todos} />
+    <ToDoList list = {todos} onToggle = {toggleTodo}/>
     </>
   );
 }

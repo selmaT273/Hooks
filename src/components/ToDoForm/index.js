@@ -20,7 +20,7 @@ export default function ToDoForm(props){
 
     const saveTodo = e => {
         e.preventDefault();
-        onSave({title, assignedTo, difficulty});
+        onSave({title, assignedTo, difficulty, completed: false});
         e.target.reset();
     }
 

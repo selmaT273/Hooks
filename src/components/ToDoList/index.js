@@ -6,7 +6,7 @@ export default function ToDoList(props){
     return(
         <ul>
             {props.list.map((todo, index) =>(
-                <li key={index}>
+                <li key={index} onClick ={() => props.onToggle(index)}>
                     {todo.title}
                     {todo.assignedTo}
                     {todo.difficulty}
