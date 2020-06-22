@@ -2,22 +2,25 @@ import React, { useState, useEffect } from 'react';
 
 export default function ToDoForm(props){
 
-    const { initialForm = [] } = props;
+    const { onSave } = props;
 
-    let [todos, setTodos] = useState(initialForm);
     
     let [title, setTitle] = useState('');
 
-    let [assignedTo, assignment] = useState('');
+    let [assignedTo, setAssignedTo] = useState('');
 
-    let [difficulty, difficultyRating] = useState(0);
+    let [difficulty, setDifficulty] = useState(0);
 
+    const updateTitle = e => setTitle(e.target.value);
+
+    const updateAssignedTo = e => setAssignedTo(e.target.value);
+
+    const updateDifficulty = e => setDifficulty(e.target.value);
+    
 
     const saveTodo = e => {
         e.preventDefault();
-
-        let newToDos = [...todos, { title, assignedTo, difficulty  }];
-        setTodos(newToDos);
+        onSave({title, assignedTo, difficulty});
         e.target.reset();
     }
 
@@ -26,19 +29,19 @@ export default function ToDoForm(props){
         <div>
             <form onSubmit={saveTodo}>
                 <h3>Title</h3>
-                <input className="title">
+                <input onChange={updateTitle}>
 
                 </input>
 
                 <h3>Assigned To</h3>
-                <input className="assignedTo"></input>
+                <input onChange={updateAssignedTo}></input>
 
                 <h3>Difficulty</h3>
-                <input className="difficulty"></input>
+                <input onChange={updateDifficulty}></input>
                 <br></br>
                 <br></br>
                 <button type="submit">Save Todo Item</button>
             </form>
         </div>
-    )
+    );
 }
