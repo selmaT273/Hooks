@@ -16,7 +16,13 @@ function App() {
 
   function toggleTodo(indexToUpdate) {
     console.log(indexToUpdate);
-    // let updatedTodos = todos.map((todo, t))
+    let updatedTodos = todos.map((todo, t) => {
+      if(t !== indexToUpdate){
+        return todo;
+      }
+      return {...todo, completed: true};
+    });
+    setTodos(updatedTodos);
   }
 
   return (
