@@ -6,6 +6,7 @@ import ToDoList from './components/ToDoList'
 function App() {
 
   let [todos, setTodos] = useState([{title: 'test', assignedTo: 'Stacey', difficulty: 1}]);
+  console.log(todos);
 
   function addTodo(newTodo){
         console.log(newTodo)
@@ -20,7 +21,7 @@ function App() {
       if(t !== indexToUpdate){
         return todo;
       }
-      return {...todo, completed: true};
+      return {...todo, completed: !todo.completed};
     });
     setTodos(updatedTodos);
   }

@@ -10,7 +10,7 @@ export default function ToDoList(props){
                     {todo.title}
                     {todo.assignedTo}
                     {todo.difficulty}
-                    
+                    {todo.completed ? 'completed' : 'incomplete'}
                 </li>
             ))}
         </ul>
