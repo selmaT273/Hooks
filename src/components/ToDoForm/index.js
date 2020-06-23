@@ -28,16 +28,16 @@ export default function ToDoForm(props){
     return (
         <div>
             <form onSubmit={saveTodo}>
-                <h3>Title</h3>
+                <label>Title</label>
                 <input onChange={updateTitle}>
 
                 </input>
 
-                <h3>Assigned To</h3>
+                <label>Assigned To</label>
                 <input onChange={updateAssignedTo}></input>
 
-                <h3>Difficulty</h3>
-                <input onChange={updateDifficulty}></input>
+                <label>Difficulty</label>
+                <input name="difficulty" type="range" min="0" max="5" step="1" onChange={updateDifficulty}></input>
                 <br></br>
                 <br></br>
                 <button type="submit">Save Todo Item</button>
