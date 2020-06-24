@@ -15,6 +15,7 @@ export default function ToDoForm(props){
         onSave({
             ...requiredValues,
             ...formValues,
+            difficulty: Number(formValues.difficulty)
         });
 
         // TODO: use fetch to POST
