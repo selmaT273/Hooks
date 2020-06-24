@@ -32,7 +32,7 @@ function App() {
         refresh();
   }
 
-  function toggleTodo(indexToUpdate) {
+  async function toggleTodo(indexToUpdate) {
     console.log(indexToUpdate);
     let updatedTodos = todos.map((todo, t) => {
       if(t !== indexToUpdate){
@@ -41,6 +41,15 @@ function App() {
       return {...todo, completed: !todo.completed};
     });
     setTodos(updatedTodos);
+
+    const todoToUpdate = updatedTodos[indexToUpdate];
+    console.log({todoToUpdate})
+    await fetch(`${todosUrl}/${todoToUpdate.id}`, {
+      method: 'put',
+      headers:{'content-type': 'application/json'},
+      body: JSON.stringify(todoToUpdate)
+    });
+    refresh();
   }
 
   return (
