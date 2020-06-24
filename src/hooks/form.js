@@ -1,19 +1,19 @@
 import { useState } from 'react';
 
-export default function useForm(saveTodo){
+export default function useForm(onSubmit){
     const [values, setValues] = useState({});
 
     const handleSubmit = e => {
         e.preventDefault();
-        saveTodo(values);
+        onSubmit(values);
 
     }
 
     const handleChange = e => {
-        const { title, value } = e.target;
+        const { name, value } = e.target;
         setValues(values => ({
             ...values,
-            [title]: value,
+            [name]: value,
 
         }));
     }
