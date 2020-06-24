@@ -17,7 +17,8 @@ export default function ToDoList(props){
         <ul>
             {list.map((todo, index) =>(
                 <li key={index} onClick ={() => props.onToggle(index)}>
-                    {todo.title}
+                    <a href={`/todos/${todo.id}`}>
+                    {todo.title}</a>
                     {todo.assignedTo}
                     {todo.difficulty}
                     {todo.completed ? 'completed' : 'incomplete'}

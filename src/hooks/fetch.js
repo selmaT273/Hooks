@@ -7,20 +7,29 @@ function useFetch(url){
 
     const [data, setData] = useState(null);
 
+    async function doFetch(url) {
+        let response = await fetch(url);
+        let json = await response.json();
+        setData(json);
+    }
+
     useEffect(() => {
-        async function doFetch() {
+        async function doInitialFetch() {
             setLoading(true);
-            let response = await fetch(url);
-            let json = await response.json();
-            setData(json);
+            await doFetch(url);
             setLoading(false);
         }
-        doFetch();
+        doInitialFetch(url);
     }, [url]);
+
+    const refresh = () => {
+      doFetch(url)
+    }
 
     return [
         isLoading,
         data,
+        refresh,
     ];
 }
 
