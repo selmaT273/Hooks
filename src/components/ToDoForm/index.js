@@ -13,27 +13,6 @@ export default function ToDoForm(props){
         // TODO: use fetch to POST
     }
 
-    // let [title, setTitle] = useState('');
-
-    // let [assignedTo, setAssignedTo] = useState('');
-
-    // let [difficulty, setDifficulty] = useState(0);
-
-    // const updateTitle = e => setTitle(e.target.value);
-
-    // const updateAssignedTo = e => setAssignedTo(e.target.value);
-
-    // const updateDifficulty = e => setDifficulty(e.target.value);
-    
-
-    // const saveTodo = e => {
-    //     e.preventDefault();
-
-    //     onSave({title, assignedTo, difficulty, completed: false});
-    //     e.target.reset();
-    // }
-
-
     return (
         <div>
             <form onSubmit={handleSubmit}>
