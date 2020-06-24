@@ -4,8 +4,9 @@ import ToDoForm from './components/ToDoForm';
 import ToDoList from './components/ToDoList';
 import useFetch from './hooks/fetch';
 
+const todosUrl = 'https://deltav-todo.azurewebsites.net/api/v1/Todos';
 function App() {
-  const [isLoading, data] = useFetch('https://deltav-todo.azurewebsites.net/api/v1/Todos');
+  const [isLoading, data] = useFetch(todosUrl);
 
 
   let [todos, setTodos] = useState([{title: 'test', assignedTo: 'Stacey', difficulty: 1}]);
@@ -15,11 +16,17 @@ function App() {
     setTodos(data);
   }, [data]);
 
-  function addTodo(newTodo){
+  async function addTodo(newTodo){
         console.log(newTodo)
         let newToDos = [...todos, newTodo];
         setTodos(newToDos);
 
+        let response = await fetch(todosUrl, {
+          method: 'post',
+          headers:{'content-type': 'application/json'},
+          body: JSON.stringify(newTodo)
+        });
+        console.log(response);
   }
 
   function toggleTodo(indexToUpdate) {
