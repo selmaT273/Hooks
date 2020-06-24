@@ -4,9 +4,9 @@ import useFetch from '../../hooks/fetch';
 
 export default function ToDoList(props){
 
-    const [isLoading, data] = useFetch('https://deltav-todo.azurewebsites.net/');
+    const [isLoading, data] = useFetch('https://deltav-todo.azurewebsites.net/api/v1/Todos');
 
-    if (isLoading) {
+    if (isLoading || !data ) {
         return (<h2>Loading...</h2>)
     }
 
