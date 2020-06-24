@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import useForm from '../../hooks/form.js';
 
 export default function ToDoForm(props){
 
     const { onSave } = props;
 
-    
+    let [handleSubmit] = useForm(saveFromHook);
+
+    function saveFromHook(formValues){
+        props.saveTodo({...formValues, completed: false});
+
+        // TODO: use fetch to POST
+    }
+
     let [title, setTitle] = useState('');
 
     let [assignedTo, setAssignedTo] = useState('');
@@ -27,7 +35,7 @@ export default function ToDoForm(props){
 
     return (
         <div>
-            <form onSubmit={saveTodo}>
+            <form onSubmit={handleSubmit}>
                 <label>Title</label>
                 <input onChange={updateTitle}>
 
