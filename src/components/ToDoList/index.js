@@ -4,7 +4,7 @@ import useFetch from '../../hooks/fetch';
 
 export default function ToDoList(props){
 
-    const [isLoading, data] = useFetch('api');
+    const [isLoading, data] = useFetch('https://deltav-todo.azurewebsites.net/');
 
     if (isLoading) {
         return (<h2>Loading...</h2>)
@@ -14,7 +14,7 @@ export default function ToDoList(props){
 
         // <h3>Incomplete count: {props.list.filter(t => !t.completed).length}</h3>
         <ul>
-            {props.list.map((todo, index) =>(
+            {data.map((todo, index) =>(
                 <li key={index} onClick ={() => props.onToggle(index)}>
                     {todo.title}
                     {todo.assignedTo}
