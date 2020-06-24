@@ -4,11 +4,12 @@ import useForm from '../../hooks/form.js';
 export default function ToDoForm(props){
 
     const { onSave } = props;
+    
 
-    let [handleSubmit, handleChange] = useForm(saveFromHook);
+    let [handleSubmit, handleChange] = useForm(saveFromHook, );
 
     function saveFromHook(formValues){
-        onSave({...formValues, completed: false});
+        onSave({...formValues, completed: false, difficulty: Number(formValues.difficulty)});
 
         // TODO: use fetch to POST
     }
@@ -22,7 +23,7 @@ export default function ToDoForm(props){
                 </input>
 
                 <label>Assigned To</label>
-                <input name="assignedTo" onChange={handleChange}></input>
+                <input name="assignedTo" onChange={handleChange} ></input>
 
                 <label>Difficulty</label>
                 <input name="difficulty" type="range" min="0" max="5" step="1" onChange={handleChange}></input>
