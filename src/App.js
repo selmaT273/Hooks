@@ -6,7 +6,7 @@ import useFetch from './hooks/fetch';
 
 const todosUrl = 'https://deltav-todo.azurewebsites.net/api/v1/Todos';
 function App() {
-  const [isLoading, data] = useFetch(todosUrl);
+  const [isLoading, data, refresh] = useFetch(todosUrl);
 
 
   let [todos, setTodos] = useState([{title: 'test', assignedTo: 'Stacey', difficulty: 1}]);
@@ -27,6 +27,9 @@ function App() {
           body: JSON.stringify(newTodo)
         });
         console.log(response);
+        // update todos to inject our id?
+        // nah, let's refetch instead
+        refresh();
   }
 
   function toggleTodo(indexToUpdate) {
