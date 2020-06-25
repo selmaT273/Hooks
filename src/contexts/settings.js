@@ -12,10 +12,14 @@ export class SettingsProvider extends React.Component {
 
         this.state = {
             title: 'DeltaV Context',
+            setTitle: this.setTitle,
             twitter: '@selma_042',
+            setTwitter: this.setTwitter,
         };
     }
 
+    setTitle = title => this.setState({title});
+    setTwitter = twitter => this.setState({twitter});
     render(){
         return (
             <SettingsContext.Provider value={this.state}>

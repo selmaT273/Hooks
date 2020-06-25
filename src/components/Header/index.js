@@ -13,6 +13,7 @@ export default function Header() {
             <h2>{title}</h2>
             <button onClick={() => theme.toggleMode()}>Toggle Theme</button>
             <a href={`https://twitter.com/${twitter}`}>Twitter</a>
+
         </header>
     );
 }
