@@ -1,0 +1,8 @@
+header.light {
+    background: lightgray;
+}
+
+header.dark {
+    background: black;
+    color: white;
+}
