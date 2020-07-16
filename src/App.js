@@ -4,7 +4,7 @@ import ToDoForm from './components/ToDoForm';
 import ToDoList from './components/ToDoList';
 import useFetch from './hooks/fetch';
 
-const todosUrl = 'https://deltav-todo.azurewebsites.net/api/v1/Todos'
+const todosUrl = 'https://deltav-todo-alpha.azurewebsites.net/api/v1/Todos'
 function App() {
   const [isLoading, data, refresh] = useFetch(todosUrl);
 
