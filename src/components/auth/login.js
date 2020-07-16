@@ -1,4 +1,5 @@
 import React from 'react';
+import './login.css';
 import { AuthContext } from '../../contexts/auth';
 
 // TODO: for lab make this a function component

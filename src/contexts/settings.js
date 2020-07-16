@@ -11,8 +11,8 @@ export class SettingsProvider extends React.Component {
         super(props);
 
         this.state = {
-            title: 'DeltaV Context',
-            setTitle: this.setTitle,
+            // title: 'DeltaV Context',
+            // setTitle: this.setTitle,
             twitter: '@selma_042',
             setTwitter: this.setTwitter,
         };
