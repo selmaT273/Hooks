@@ -19,11 +19,11 @@ export default class Login extends React.Component{
     render(){
         console.log('auth context', this.context);
 
-        const {user} = this.context;
+        // const {user} = this.context;
 
-        if (user){
-            return (<h1>Welcome Back</h1>)
-        }
+        // if (user){
+        //     return (<h1>Welcome Back</h1>)
+        // }
         
         return(
             <form onSubmit={this.handleSubmit}>
