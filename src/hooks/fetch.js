@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import useAuth from '../contexts/auth';
 
 // const [isLoading, data] = useFetch(url)
 
 function useFetch(url){
+    const { user } = useAuth();
     const [isLoading, setLoading] = useState(false);
 
     const [data, setData] = useState(null);
